@@ -144,3 +144,10 @@ a.tag:hover { border-color: var(--accent); color: var(--accent); }
 .line-list.rich a { padding: 12px 2px; }
 .line-list.rich strong { display: block; color: var(--accent); font-weight: 600; }
 .line-list.rich .blurb { display: block; color: var(--muted); font-size: .92rem; margin-top: 2px; }
+
+/* estudantes */
+.students { list-style: none; padding: 0; margin: 0 0 1em; }
+.student { padding: 9px 0; border-bottom: 1px solid var(--line); display: grid; gap: 1px; }
+.student:last-child { border-bottom: 0; }
+.student .meta { font-size: .82rem; color: var(--accent); }
+.student .work { font-size: .92rem; color: var(--muted); }
