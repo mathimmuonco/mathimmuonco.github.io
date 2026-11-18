@@ -1,0 +1,112 @@
+/* MathImmuOnco: visual sóbrio. Cor de destaque: mude só --accent (e --accent-d para o modo escuro). */
+:root {
+  --accent: #0f6070;          /* azul-petróleo; alternativa verde: #1f6b4a */
+  --accent-soft: #e4f0f2;
+  --bg: #ffffff;
+  --fg: #1d2327;
+  --muted: #5b676d;
+  --line: #dde3e6;
+  --card: #f6f8f9;
+  --maxw: 860px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #6cc4d3;        /* verde alternativo: #7fd1a6 */
+    --accent-soft: #17313a;
+    --bg: #14181a;
+    --fg: #e4e8ea;
+    --muted: #9aa7ad;
+    --line: #2b3438;
+    --card: #1b2124;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+h1, h2, h3 { line-height: 1.25; margin: 1.6em 0 .5em; }
+h1 { font-size: 1.9rem; margin-top: 1.2em; }
+h2 { font-size: 1.35rem; padding-bottom: .25em; border-bottom: 1px solid var(--line); }
+h3 { font-size: 1.05rem; }
+p { margin: .7em 0; }
+.lead { font-size: 1.05rem; }
+.muted { color: var(--muted); font-size: .92rem; }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 8px; top: 8px; background: var(--bg); padding: 6px 10px; z-index: 10; }
+
+/* cabeçalho */
+.site-header { border-bottom: 1px solid var(--line); background: var(--bg); position: sticky; top: 0; z-index: 5; }
+.header-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 20px; padding-top: 10px; padding-bottom: 10px; }
+.brand { text-decoration: none; color: var(--fg); display: flex; flex-direction: column; line-height: 1.2; }
+.brand-name { font-weight: 700; font-size: 1.25rem; color: var(--accent); letter-spacing: .01em; }
+.brand-sub { font-size: .78rem; color: var(--muted); }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: center; font-size: .97rem; }
+.nav a { text-decoration: none; color: var(--fg); padding: 4px 0; border-bottom: 2px solid transparent; }
+.nav a:hover { border-bottom-color: var(--line); }
+.nav a[aria-current="page"] { border-bottom-color: var(--accent); color: var(--accent); font-weight: 600; }
+.nav .lang { border: 1px solid var(--line); border-radius: 4px; padding: 2px 8px; font-size: .85rem; font-weight: 600; }
+.nav .lang:hover { border-color: var(--accent); }
+
+/* hero */
+.hero { padding: 28px 0 6px; }
+.hero h1 { font-size: 2.4rem; margin: 0; color: var(--accent); }
+.hero .full { font-size: 1.1rem; margin: .2em 0 0; color: var(--muted); }
+.hero .tagline { font-size: 1.25rem; margin: .8em 0 0; font-weight: 500; }
+
+/* cartões das linhas */
+.cards { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 640px) { .cards { grid-template-columns: 1fr 1fr; } }
+.card { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; text-decoration: none; color: var(--fg); }
+.card:hover { border-color: var(--accent); }
+.card h3 { margin: 0 0 .3em; font-size: 1rem; color: var(--accent); }
+.card p { margin: 0; font-size: .92rem; color: var(--muted); }
+.card-n { float: right; margin-left: 8px; font-weight: 700; color: var(--accent); opacity: .5; }
+
+/* pesquisa */
+.toc { padding-left: 1.2em; }
+.toc li { margin: .2em 0; }
+.line { scroll-margin-top: 70px; }
+.line-n { margin: 2em 0 0; font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); font-weight: 600; }
+.line h2 { margin-top: .2em; }
+
+/* tags e emblemas */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: .5em 0; }
+.tag { font-size: .76rem; padding: 1px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); text-decoration: none; background: var(--bg); }
+a.tag:hover { border-color: var(--accent); color: var(--accent); }
+.tag.primary { background: var(--accent-soft); border-color: transparent; color: var(--accent); }
+.badge { display: inline-block; margin-left: 8px; font-size: .7rem; font-weight: 600; padding: 1px 8px; border-radius: 4px; vertical-align: 2px; background: var(--accent-soft); color: var(--accent); }
+.badge-submitted, .badge-preprint { background: var(--card); color: var(--muted); border: 1px solid var(--line); }
+
+/* publicações */
+.pubs { list-style: none; padding: 0; margin: 0; }
+.pub { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.pub:last-child { border-bottom: 0; }
+.pub-title { font-weight: 600; }
+.pub-title a { text-decoration: none; }
+.pub-title a:hover { text-decoration: underline; }
+.pub-authors, .pub-venue { font-size: .92rem; color: var(--muted); }
+.pub-authors strong { color: var(--fg); }
+.pub .tags { margin: .3em 0 0; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 1em 0; }
+.filters button { font: inherit; font-size: .85rem; padding: 3px 11px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); border-radius: 999px; cursor: pointer; }
+.filters button:hover { border-color: var(--accent); }
+.filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.pub[hidden], .pub-group[hidden] { display: none; }
+
+/* pessoas */
+.people, .collabs { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 640px) { .people, .collabs { grid-template-columns: 1fr 1fr; } }
+.person, .collabs li { border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; background: var(--card); }
+.person h3 { margin: 0; font-size: 1.05rem; }
+.person p { margin: .25em 0; font-size: .93rem; }
+.person .role { color: var(--accent); font-weight: 600; font-size: .85rem; }
+.person .focus { color: var(--muted); }
+
+/* rodapé */
+.site-footer { margin-top: 56px; border-top: 1px solid var(--line); padding: 18px 0 30px; font-size: .88rem; color: var(--muted); }
+.site-footer p { margin: .25em 0; }
