@@ -115,8 +115,8 @@ a.tag:hover { border-color: var(--accent); color: var(--accent); }
 .site-footer p { margin: .25em 0; }
 
 /* figuras */
-.thumb { display: block; margin: -2px 0 10px; aspect-ratio: 16 / 9; background: #fff; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
-.thumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.thumb { display: block; position: relative; width: 100%; height: 0; padding-bottom: 56.25%; margin: 0 0 10px; background: #fff; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.thumb img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
 .fig { margin: 1em 0 1.2em; }
 .fig img { width: 100%; height: auto; display: block; background: #fff; border: 1px solid var(--line); border-radius: 6px; }
 @media (min-width: 700px) { .fig { max-width: 520px; } }
@@ -151,3 +151,11 @@ a.tag:hover { border-color: var(--accent); color: var(--accent); }
 .student:last-child { border-bottom: 0; }
 .student .meta { font-size: .82rem; color: var(--accent); }
 .student .work { font-size: .92rem; color: var(--muted); }
+
+/* cartões: altura uniforme e logo com limite de tamanho (robusto em Safari/navegadores antigos) */
+.card { position: relative; display: flex; flex-direction: column; }
+.card .card-n { position: absolute; top: 20px; right: 22px; z-index: 2; float: none; margin: 0; padding: 0 7px; border-radius: 999px; background: var(--card); opacity: .9; }
+.card h3 { margin-top: 0; }
+.card p { flex: 1; }
+.brand-logo { max-width: 38px; max-height: 38px; overflow: hidden; }
+.brand-logo svg { max-width: 38px; max-height: 38px; }
