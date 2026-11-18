@@ -93,7 +93,6 @@ a.tag:hover { border-color: var(--accent); color: var(--accent); }
 .pub-title a { text-decoration: none; }
 .pub-title a:hover { text-decoration: underline; }
 .pub-authors, .pub-venue { font-size: .92rem; color: var(--muted); }
-.pub-authors strong { color: var(--fg); }
 .pub .tags { margin: .3em 0 0; }
 .filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 1em 0; }
 .filters button { font: inherit; font-size: .85rem; padding: 3px 11px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); border-radius: 999px; cursor: pointer; }
